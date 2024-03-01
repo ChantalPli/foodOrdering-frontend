@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import LoadingButton from '@/components/LoadingButton'
 import { Button } from '@/components/ui/button'
 import { User } from '@/types'
-import { useEffect, useSyncExternalStore } from 'react'
+import { useEffect } from 'react'
 
 const formSchema = z.object({
   email: z.string().optional(),
