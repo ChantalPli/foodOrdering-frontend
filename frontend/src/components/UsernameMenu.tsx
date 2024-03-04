@@ -8,35 +8,44 @@ import { Button } from "./ui/button"
 
 
 function UsernameMenu() {
-const {user,logout}  = useAuth0()
+  const { user, logout } = useAuth0()
 
-    return (
-        <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-orange-600 gap-2">
-                <CircleUserIcon className="text-orange-600"/>
-                {user?.email}
-            </DropdownMenuTrigger>
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-orange-600 gap-2">
+        <CircleUserIcon className="text-orange-600" />
+        {user?.email}
+      </DropdownMenuTrigger>
 
-            <DropdownMenuContent>
-             <DropdownMenuItem>
-                <Link
-                 to={"/user-profile"}
-                 className="font-bold hover:text-orange-600"
-                >
-                User Profile
-                </Link>
-             </DropdownMenuItem>
-             <Separator />
-             <DropdownMenuItem>
-                <Button 
-                onClick={()=> logout()}
-                className="flex flex-1 font-bold bg-orange-600">
-                   Log Out
-                </Button>
-             </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
-    )
+      <DropdownMenuContent>
+        <DropdownMenuItem>
+          <Link
+            to={"/manage-restaurant"}
+            className="font-bold hover:text-orange-600"
+          >
+            Manage Restaurant
+          </Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem>
+          <Link
+            to={"/user-profile"}
+            className="font-bold hover:text-orange-600"
+          >
+            User Profile
+          </Link>
+        </DropdownMenuItem>
+        <Separator />
+        <DropdownMenuItem>
+          <Button
+            onClick={() => logout()}
+            className="flex flex-1 font-bold bg-orange-600">
+            Log Out
+          </Button>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
 }
 
 export default UsernameMenu
