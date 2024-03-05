@@ -76,11 +76,11 @@ export default function ManageRestaurantForm({ onSave, isLoading }: Props) {
       formData.append(`cuisines[${index}]`, cuisine)
     })
     formDataJson.menuItems.forEach((menuItem, index) => {
-      formData.append(`menuItems [${index}][name]`, menuItem.name)
-      formData.append(`menuItems [${index}][price]`, (menuItem.price * 100).toString())
+      formData.append(`menuItems[${index}][name]`, menuItem.name)
+      formData.append(`menuItems[${index}][price]`, (menuItem.price * 100).toString())
     })
 
-    formData.append("imageFile", formDataJson.imageFile)
+    formData.append(`imageFile`, formDataJson.imageFile)
 
     onSave(formData)
   }
