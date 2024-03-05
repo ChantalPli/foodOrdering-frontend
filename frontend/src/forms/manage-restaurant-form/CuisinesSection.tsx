@@ -19,7 +19,7 @@ export default function CuisinesSection() {
           <FormItem>
             <div className="grid md:grid-cols-5 gap-1">
               {cuisineList.map((cuisineItem) => (
-                <CuisineCheckbox cuisine={cuisineItem} field={field} />
+                <CuisineCheckbox key={cuisineItem} cuisine={cuisineItem} field={field} />
               ))}
             </div>
             <FormMessage />

@@ -9,6 +9,8 @@ import MenuSection from "./MenuSection"
 import ImageSection from "./ImageSection"
 import LoadingButton from "@/components/LoadingButton"
 import { Button } from "@/components/ui/button"
+import { Restaurant } from "@/types"
+import { useEffect } from "react"
 
 const formSchema = z.object({
   restaurantName: z.string({
@@ -41,11 +43,12 @@ const formSchema = z.object({
 type RestaurantFormData = z.infer<typeof formSchema>
 
 type Props = {
+  restaurant?: Restaurant // "?"" => the restaurant could be undefined in case the user hasn't created a restaurant yet
   onSave: (restaurantFormData: FormData) => void
   isLoading: boolean
 }
 
-export default function ManageRestaurantForm({ onSave, isLoading }: Props) {
+export default function ManageRestaurantForm({ onSave, isLoading, restaurant }: Props) {
 
   const form = useForm<RestaurantFormData>({
     resolver: zodResolver(formSchema),
@@ -54,6 +57,33 @@ export default function ManageRestaurantForm({ onSave, isLoading }: Props) {
       menuItems: [{ name: '', price: 0 }]
     }
   })
+
+  //to pre populate the form with the values from the restaurant object
+  useEffect(() => {
+    if (!restaurant) {
+      return
+    }
+
+    //price lowest denomination of 100 = 100pence == 1GBP
+    const deliveryPriceFormatted = parseInt((restaurant.deliveryPrice / 100).toFixed(2))
+    const menuItemsFormatted = restaurant.menuItems.map((item) => ({  //we iterate over the array "menuItems" and we change the format of the price of the menuItem
+      ...item,
+      price: parseInt((item.price / 100).toFixed(2)) //we overwrite the price property 
+    }))
+
+    //we update the restaurant object with the new prices:
+    const updatedRestaurant = {
+      ...restaurant,
+      deliveryPrice: deliveryPriceFormatted,
+      menuItems: menuItemsFormatted
+    }
+
+    form.reset(updatedRestaurant)
+
+  }, [form, restaurant])
+
+
+
 
   const onSubmit = (formDataJson: RestaurantFormData) => {
     //convert formDataJson to a new FormData object
