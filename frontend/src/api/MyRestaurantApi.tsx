@@ -1,5 +1,6 @@
 //api requests to communicate with the api/my/restaurant endpoint
 
+import ManageRestaurantForm from "@/forms/manage-restaurant-form/ManageRestaurantForm"
 import { Restaurant } from "@/types"
 import { useAuth0 } from "@auth0/auth0-react"
 import { useMutation, useQuery } from "react-query"
@@ -54,7 +55,7 @@ export function useCreateMyRestaurant() {
         return response.json()
     }
 
-    //we pass this fetch req to the useMutation hook(comes from reactQuery package)that will manage it
+    //this fetch req is passed to the useMutation hook(comes from reactQuery package)that will manage it
     const {
         mutate: createRestaurant,
         isLoading,
@@ -71,5 +72,37 @@ export function useCreateMyRestaurant() {
     }
 
     return { createRestaurant, isLoading }
+}
+
+export function useUpdateMyRestaurant() {
+    const { getAccessTokenSilently } = useAuth0()
+
+    const updateRestaurantRequest = async (restaurantFormData: FormData): Promise<Restaurant> => {
+        const accessToken = await getAccessTokenSilently()
+
+        const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
+            method: "PUT",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+            body: restaurantFormData
+        })
+        if (!response.ok) {
+            throw new Error("Failed to update restaurant")
+        }
+        return response.json()
+    }
+    const { mutate: updateRestaurant, isLoading, isSuccess, error } = useMutation(updateRestaurantRequest)
+
+    if (isSuccess) {
+        toast.success("Restaurant updated")
+    }
+
+    if (error) {
+        toast.error("Unable to update restaurant")
+    }
+
+    return { updateRestaurant, isLoading }
+
 }
 

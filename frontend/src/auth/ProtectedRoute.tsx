@@ -3,9 +3,19 @@ import { Navigate, Outlet } from "react-router-dom"
 
 
 export default function ProtectedRoute() {
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, isLoading } = useAuth0()
 
-    return isAuthenticated ? (<Outlet />) : (<Navigate to="/" replace />)
+    if (isLoading) {
+        return null
+    }
+
+    if (isAuthenticated) {
+        return <Outlet />
+    }
+
+    return <Navigate to="/" replace />
+
+    // return isAuthenticated ? (<Outlet />) : (<Navigate to="/" replace />)
     // replace indicates that we this to be a new url
     //Outlet: children of the route that has ProtectedRoute as element
 
