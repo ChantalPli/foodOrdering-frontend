@@ -1,14 +1,29 @@
 import landingImage from "../assets/mobile1.webp"
 import appDownloadImg from "../assets/buttons_mobile.jpeg"
+import SearchBar, { SearchForm } from "@/components/SearchBar"
+import { useNavigate } from "react-router-dom"
+
 
 
 function HomePage() {
+    const navigate = useNavigate(
+
+    )
+    const handleSearchSubmit = (searchFormValues: SearchForm) => {
+        navigate({
+            pathname: `/search/${searchFormValues.searchQuery}`, //it takes the user to the searchPage and adds their searchQuery as parameter
+        })
+    }
 
     return (
         <div className="flex flex-col gap-12">
-            <div className="bg-stone-50 rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
+            <div className="md:px-32 bg-stone-50 rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
                 <h1 className="text-5xl font-bold tracking-tight text-orange-600">Discover a world of culinary convenience</h1>
                 <span className="text-xl  text-orange-600">Food happiness is just a tap away!</span>
+                <SearchBar
+                    placeHolder="Search by city"
+                    onSubmit={handleSearchSubmit}
+                />
             </div>
             <div className="grid md:grid-cols-2 gap-5">
                 <img src={landingImage} />

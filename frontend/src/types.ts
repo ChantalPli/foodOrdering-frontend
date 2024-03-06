@@ -25,3 +25,4 @@ export type Restaurant = {
     imageUrl: string,
     lastUpdated: string
 }
+
