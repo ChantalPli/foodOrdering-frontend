@@ -6,7 +6,6 @@ import { Separator } from "./ui/separator"
 import { Button } from "./ui/button"
 
 
-
 function UsernameMenu() {
   const { user, logout } = useAuth0()
 

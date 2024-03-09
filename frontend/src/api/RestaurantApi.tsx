@@ -9,6 +9,8 @@ export function useSearchRestaurant(searchState: SearchState, city?: string) {
     const createSearchRequest = async (): Promise<RestaurantSearchResponse> => {
         const params = new URLSearchParams()
         params.set("searchQuery", searchState.searchQuery)
+        params.set("page", searchState.page.toString())
+
         const response = await fetch(`${API_BASE_URL}/api/restaurant/search/${city}?${params.toString()}`)
 
         if (!response.ok) {
@@ -16,12 +18,12 @@ export function useSearchRestaurant(searchState: SearchState, city?: string) {
         }
         return response.json()
     }
-
+    //any time the searchState object changes, the query runs again 
     const { data: results, isLoading } = useQuery(
-        ["searchRestaurants"],
+        ["searchRestaurants", searchState],
         createSearchRequest,
         { enabled: !!city }//the query in going to run only if city is a truthy value 
     )
 
     return { results, isLoading }
-}
+} 
