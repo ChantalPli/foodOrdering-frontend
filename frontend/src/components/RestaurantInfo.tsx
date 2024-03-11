@@ -19,7 +19,7 @@ export default function RestaurantInfo({ restaurant }: Props) {
       </CardHeader>
       <CardContent className="flex">
         {restaurant.cuisines.map((item, index) => (
-          <span className="flex">
+          <span className="flex" key={index}>
             <span>{item}</span>
             {/* we display the dot only if it's not the last item */}
             {index < restaurant.cuisines.length - 1 && <Dot />}

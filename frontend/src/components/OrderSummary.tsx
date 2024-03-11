@@ -35,10 +35,10 @@ export default function OrderSummary({ restaurant, cartItems, removeFromCart }: 
       </CardHeader>
 
       <CardContent className="flex flex-col gap-5">
-        {cartItems.map((item) => (
-          <div className="flex justify-between">
-            <span>
-              <Badge variant="outline" className="mr-2">
+        {cartItems.map((item, index) => (
+          <div className="flex justify-between" key={index}>
+            <span >
+              <Badge variant="outline" className="mr-2" >
                 {item.quantity}
               </Badge>
               {item.name}
