@@ -23,7 +23,7 @@ type Props = {
   onSave: (userProfileData: UserFormData) => void //userProfileData=> data from the form
   isLoading: boolean
   title?: string
-  buttonText: string
+  buttonText?: string
 }
 
 
