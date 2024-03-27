@@ -1,4 +1,4 @@
-//hooks needed to communicate with the myuserapi endpoint
+//hooks needed to communicate with the api/my/user endpoint
 
 import { User } from "@/types"
 import { useAuth0 } from "@auth0/auth0-react"
@@ -46,7 +46,7 @@ type CreateUserRequest = {
   email: string
 }
 
-//#2_CUSTOM HOOK  that makes the api request:
+//#2_CUSTOM HOOK:
 export function useCreateMyUser() {
   //func that let us fetch the token from the Auth0:
   const { getAccessTokenSilently } = useAuth0()

@@ -13,7 +13,7 @@ export default function ImageSection() {
       <div>
         <h2 className="text-2xl font-bold">Image</h2>
         <FormDescription>
-          Add an to appear alongside your restaurant listing in the search results. Adding an image will orverwr ite the existing one.
+          Add an to appear alongside your restaurant listing in the search results. Adding an image will orverwrite the existing one.
         </FormDescription>
 
         <div className="flex flex-col gap-8 md:w-[50%]">

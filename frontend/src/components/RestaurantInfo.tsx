@@ -1,6 +1,6 @@
 import { Restaurant } from "@/types"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
-import { Dot } from "lucide-react"
+import { Utensils } from "lucide-react"
 
 type Props = {
   restaurant: Restaurant
@@ -19,10 +19,10 @@ export default function RestaurantInfo({ restaurant }: Props) {
       </CardHeader>
       <CardContent className="flex">
         {restaurant.cuisines.map((item, index) => (
-          <span className="flex" key={index}>
+          <span className="flex p-2" key={index}>
             <span>{item}</span>
             {/* we display the dot only if it's not the last item */}
-            {index < restaurant.cuisines.length - 1 && <Dot />}
+            {<Utensils size={18} />}
           </span>
         ))}
       </CardContent>

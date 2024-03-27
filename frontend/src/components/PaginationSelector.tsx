@@ -7,6 +7,7 @@ type Props = {
 }
 
 export default function PaginationSelector({ page, pages, onPageChange }: Props) {
+
   const pageNumbers = []
   for (let i = 1; i <= pages; i++) {
     pageNumbers.push(i)
@@ -16,7 +17,7 @@ export default function PaginationSelector({ page, pages, onPageChange }: Props)
   return (
     <Pagination>
       <PaginationContent>
-
+        {/* //if the current page is not the first one: */}
         {page !== 1 && (
           <PaginationItem>
             <PaginationPrevious href="#" onClick={() => onPageChange(page - 1)} />
@@ -34,8 +35,7 @@ export default function PaginationSelector({ page, pages, onPageChange }: Props)
             </PaginationLink>
           </PaginationItem>
         ))}
-
-        {/* ex: PageNumber= [1,2,3] page = 1 => not going to appear the PaginationNext button  */}
+        {/* //if the current page is not the last page */}
         {page !== pageNumbers.length && (
           <PaginationItem>
             <PaginationNext href="#" onClick={() => onPageChange(page + 1)} />

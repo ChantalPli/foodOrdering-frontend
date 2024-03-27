@@ -12,7 +12,7 @@ function MainNav() {
       {isAuthenticated ?
         (
           <>
-            <Link to="/order-status" className="font-bold hover:text-emerald-500">
+            <Link to="/order-status" className="font-bold hover:text-white hover:bg-orange-700  border-2 border-orange-700 p-3 rounded-lg">
               Order Status
             </Link>
             <UsernameMenu />
@@ -20,17 +20,13 @@ function MainNav() {
 
         ) : (
           <Button
-            variant="ghost"
-            className="font-bold hover:text-orange-600 hover:bg-white"
+            // variant="ghost"
+            className="font-bold hover:text-orange-100 hover:bg-green-800 bg-red-700"
             onClick={async () => await loginWithRedirect()}
           >
             Log In
           </Button>)}
     </span>
-
-
-
-
   )
 }
 

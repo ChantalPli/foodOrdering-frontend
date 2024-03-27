@@ -21,10 +21,12 @@ export type CartItem = {
 export default function DetailPage() {
   const { restaurantId } = useParams()
   const { restaurant, isLoading } = useGetRestaurant(restaurantId)
+
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`)
     return storedCartItems ? JSON.parse(storedCartItems) : []
   })
+
   const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession()
 
   const addToCart = (menuItem: MenuItemType) => {
@@ -120,7 +122,7 @@ export default function DetailPage() {
       <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
         <div className=" flex flex-col gap-4">
           <RestaurantInfo restaurant={restaurant} />
-          <span className="text-2xl font-bold tracking-tight ">Menu</span>
+          <span className="text-2xl font-bold tracking-tight text-center">Menu</span>
           {restaurant.menuItems.map((menuItem, index) => (
             <MenuItemComponent
               key={index}

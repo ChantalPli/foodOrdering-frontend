@@ -9,21 +9,21 @@ function MobileNavLinks() {
     <>
       <Link
         to={"/order-status"}
-        className="flex bg-white items-center font-bold text-orange-600"
+        className="flex bg-white items-center font-bold text-green-900"
       >
         Order Status
       </Link>
 
       <Link
         to={"/manage-restaurant"}
-        className="flex bg-white items-center font-bold text-orange-600"
+        className="flex bg-white items-center font-bold text-green-900"
       >
         My Restaurant
       </Link>
 
       <Link
         to={"/user-profile"}
-        className="flex bg-white items-center font-bold text-orange-600"
+        className="flex bg-white items-center font-bold text-green-900"
       >
         User Profile
       </Link>

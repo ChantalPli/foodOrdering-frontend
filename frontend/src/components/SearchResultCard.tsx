@@ -1,7 +1,7 @@
 import { Restaurant } from "@/types"
 import { Link } from "react-router-dom"
 import { AspectRatio } from "./ui/aspect-ratio"
-import { Banknote, Clock, Dot } from "lucide-react"
+import { Banknote, Clock, Utensils } from "lucide-react"
 
 type Props = {
   restaurant: Restaurant
@@ -24,15 +24,15 @@ export default function SearchResultCard({ restaurant }: Props) {
         <div id="card-content" className="grid md:grid-cols-2 gap-2">
           <div className="flex flex-row flex-wrap">
             {restaurant.cuisines.map((item, index) => (
-              <span className="flex" key={index}>
+              <span className="flex p-2" key={index}>
                 <span>{item}</span>
-                {index < restaurant.cuisines.length - 1 && <Dot />}
+                {<Utensils size={18} />}
               </span>
             ))}
           </div>
           <div className="flex gap-2 flex-col">
-            <div className="flex items-center gap-1 text-green-600">
-              <Clock className="text-green-600" />
+            <div className="flex items-center gap-1 text-orange-600">
+              <Clock className="text-orange-600" />
               {restaurant.estimatedDeliveryTime} mins
             </div>
             <div className="flex items-center gap-1">

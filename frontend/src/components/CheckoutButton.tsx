@@ -38,7 +38,7 @@ export default function CheckoutButton({ onCheckout, disabled, isLoading }: Prop
     return (
       <Button
         onClick={onLogin}
-        className="bg-emerald-500 flex-1">
+        className="bg-green-900 flex-1 mt-4">
         Log in to check out
       </Button>
     )
@@ -52,7 +52,7 @@ export default function CheckoutButton({ onCheckout, disabled, isLoading }: Prop
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button disabled={disabled} className="bg-emerald-500 flex-1">Go to checkout</Button>
+        <Button disabled={disabled} className="bg-green-800 flex-1 mt-4">Go to checkout</Button>
       </DialogTrigger>
       <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50 ">
         <UserProfileForm

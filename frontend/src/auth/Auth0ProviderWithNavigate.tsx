@@ -18,10 +18,9 @@ function Auth0ProviderWithNavigate({ children }: Props) {
     throw new Error('unable to initialise auth')
   }
 
-  //func called when the users get redirected back to the authCallbackPage:
+  //it handles redirection after user authentication 
   const onRedirectCallback = (appState?: AppState) => {
     navigate(appState?.returnTo || "/auth-callback")
-
   }
 
   return (

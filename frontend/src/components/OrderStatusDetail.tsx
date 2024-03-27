@@ -18,8 +18,8 @@ export default function OrderStatusDetail({ order }: Props) {
       <div className="flex flex-col">
         <span className="font-bold">Your order</span>
         <ul>
-          {order.cartItems.map((item) => (
-            <li>
+          {order.cartItems.map((item, index) => (
+            <li key={index}>
               {item.name} x {item.quantity}
             </li>
           ))}

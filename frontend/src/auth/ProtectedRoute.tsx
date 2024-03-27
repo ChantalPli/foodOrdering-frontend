@@ -16,7 +16,7 @@ export default function ProtectedRoute() {
     return <Navigate to="/" replace />
 
     // return isAuthenticated ? (<Outlet />) : (<Navigate to="/" replace />)
-    // replace indicates that we this to be a new url
+    // replace indicates that is going to be a new url
     //Outlet: children of the route that has ProtectedRoute as element
 
 

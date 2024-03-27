@@ -1,4 +1,4 @@
-import { CircleUserIcon } from "lucide-react"
+import { UserIcon } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { useAuth0 } from "@auth0/auth0-react"
 import { Link } from "react-router-dom"
@@ -11,8 +11,8 @@ function UsernameMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-orange-600 gap-2">
-        <CircleUserIcon className="text-orange-600" />
+      <DropdownMenuTrigger className="flex items-center px-3 font-bold text-white hover:text-white gap-2 hover:bg-orange-700 bg-green-800 p-3 border-2 rounded-lg">
+        <UserIcon className="text-white" />
         {user?.email}
       </DropdownMenuTrigger>
 
@@ -22,7 +22,7 @@ function UsernameMenu() {
             to={"/manage-restaurant"}
             className="font-bold hover:text-orange-600"
           >
-            Manage Restaurant
+            Manage my Restaurant
           </Link>
         </DropdownMenuItem>
 
@@ -38,7 +38,7 @@ function UsernameMenu() {
         <DropdownMenuItem>
           <Button
             onClick={() => logout()}
-            className="flex flex-1 font-bold bg-orange-600">
+            className="flex flex-1 font-bold bg-green-800">
             Log Out
           </Button>
         </DropdownMenuItem>

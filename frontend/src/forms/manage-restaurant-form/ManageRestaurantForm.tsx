@@ -67,10 +67,9 @@ export default function ManageRestaurantForm({ onSave, isLoading, restaurant }: 
     if (!restaurant) {
       return
     }
-
     //price lowest denomination of 100 = 100pence == 1GBP
     const deliveryPriceFormatted = parseInt((restaurant.deliveryPrice / 100).toFixed(2))
-    const menuItemsFormatted = restaurant.menuItems.map((item) => ({  //we iterate over the array "menuItems" and we change the format of the price of the menuItem
+    const menuItemsFormatted = restaurant.menuItems.map((item) => ({  //we iterate over the array "menuItems" and we change the format of the price of the menuItem into the most common denomination
       ...item,
       price: parseInt((item.price / 100).toFixed(2)) //we overwrite the price property 
     }))
@@ -134,7 +133,7 @@ export default function ManageRestaurantForm({ onSave, isLoading, restaurant }: 
         <MenuSection />
         <Separator className="bg-yellow-600" />
         <ImageSection />
-        {isLoading ? <LoadingButton /> : <Button className="bg-emerald-600" type="submit">Submit</Button>}
+        {isLoading ? <LoadingButton /> : <Button className="bg-green-800" type="submit">Submit</Button>}
       </form>
 
     </Form>

@@ -44,7 +44,7 @@ export default function SearchPage() {
     }))
   }
 
-  //func to update the state(the page value):
+  //func to update the page value:
   const setPage = (page: number) => {
     setSearchState((prevState) => ({
       ...prevState,
@@ -95,7 +95,7 @@ export default function SearchPage() {
           placeHolder="Search by cuisine or restaurant name"
           onReset={resetSearch}
         />
-        <div className="fkex justify-between flex-col gap-3 lg:flex-row">
+        <div className="flex justify-between flex-col gap-3 lg:flex-row">
           <SearchResultInfo total={results.pagination.total} city={city} />
 
           <SortOptionDropdown

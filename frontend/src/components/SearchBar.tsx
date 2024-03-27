@@ -45,22 +45,22 @@ export default function SearchBar({ onSubmit, onReset, placeHolder, searchQuery 
       onReset()
     }
   }
-
+  //we implement the searchbar as a form
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-md p-3 ${form.formState.errors.searchQuery && "border-red-500"}`}
+        className={`flex items-center gap-3 justify-between bg-white flex-row border-2  rounded-lg p-3 ${form.formState.errors.searchQuery && "border-red-500"}`}
       >
         <Search
           strokeWidth={2.5}
           size={30}
-          className="ml-1 text-green-600 hidden md:block"
+          className="ml-1 text-green-800 hidden md:block"
         />
         <FormField
           control={form.control}
           name="searchQuery"
-          render={({ field }) => (
+          render={({ field }) => ( //comes from the FormFiled
             <FormItem className="flex-1">
               <FormControl>
                 <Input
@@ -84,7 +84,7 @@ export default function SearchBar({ onSubmit, onReset, placeHolder, searchQuery 
 
         <Button
           type="submit"
-          className="rounded-sm bg-green-600">
+          className="rounded-sm bg-green-800">
           Search
         </Button>
 

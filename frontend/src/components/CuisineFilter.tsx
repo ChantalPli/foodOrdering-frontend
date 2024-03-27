@@ -30,7 +30,7 @@ export default function CuisineFilter({ onChange, selectedCuisines, isExpanded, 
     <>
       <div className="flex justify-between items-center px-2">
         <div className="text-md font-semibold mb-2">Filter by cuisine</div>
-        <div onClick={handleCuisinesReset} className="font-semibold  mb-2 underline cursor-pointer text-blue-500 text-sm ">Reset Fillters</div>
+        <div onClick={handleCuisinesReset} className="font-semibold mb-2 underline cursor-pointer text-orange-600 text-sm ">Reset Filters</div>
       </div>
 
       <div className="flex flex-col space-y-2">
@@ -51,7 +51,7 @@ export default function CuisineFilter({ onChange, selectedCuisines, isExpanded, 
                 <Label
                   htmlFor={`cuisine_${cuisine}`}
                   className={`flex flex-1 items-center cursor-pointer text-sm rounded-full px-4 py-2 font-semibold ${isSelected
-                    ? "border border-emerald-600 text-emerald-600"
+                    ? "border border-green-700 text-green-700"
                     : "border border-slate-300"
                     }`}
                 >
